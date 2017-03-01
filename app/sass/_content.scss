@@ -1,6 +1,7 @@
 .site__content{
 
   padding: 0 20px;
+  margin-bottom: 20px;
 
   .site__content__wrap{
 
@@ -40,11 +41,13 @@
       width: 35%;
       display: inline-block;
       vertical-align: top;
+      top: 0;
 
       .site__aside__fixed{
+
         &.active{
-          position: fixed;
-          top: 32px;
+          position: absolute;
+          //top: 32px;
         }
       }
 

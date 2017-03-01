@@ -79,7 +79,9 @@
         var _self = this,
             _obj = obj,
             _siteAside = $('.site__aside'),
-            _fixedAside = $('.site__aside__fixed');
+            _fixedAside = $('.site__aside__fixed'),
+            _footer = $('.site__footer'),
+            _site = $('.site');
 
         //private methods
         var _blockPosition = function (curElem){
@@ -87,9 +89,26 @@
                 var asideTopPosition = _siteAside.position().top,
                     windowTop = curElem.scrollTop();
 
-                if(windowTop > asideTopPosition ){
+
+                if(windowTop > asideTopPosition  ){
 
                     _fixedAside.addClass('active');
+
+                    _fixedAside.css({
+
+                        top: windowTop + 32
+
+                    });
+
+                    if(windowTop > _footer.position().top - _fixedAside.height()-60){
+
+                        _fixedAside.css({
+
+                            top: _footer.position().top - _fixedAside.height()-30
+
+                        })
+
+                    }
 
                 }
                 else {
@@ -111,8 +130,6 @@
                         var curElem = $(this);
 
                         _blockPosition(curElem);
-
-
 
                         return false;
                     }
